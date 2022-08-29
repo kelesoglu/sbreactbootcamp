@@ -1,5 +1,5 @@
 import React from "react";
-import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroups from 'react-bootstrap/ListGroup';
 
 
  const ListGroup =({
@@ -11,9 +11,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 }) =>{
     return (
         <div>
-            <ListGroup>
+            <ListGroups>
                 {items.map(item =>{
-                    <ListGroup.Item 
+                    <ListGroups.Item 
                     onClick={()=> onItemSelect(item)}
                     key={item[valueProperty]}
                     className={
@@ -21,16 +21,16 @@ import ListGroup from 'react-bootstrap/ListGroup';
                     }
                     >
                         {item[textPorperty]}
-                    </ListGroup.Item>
+                    </ListGroups.Item>
                 })}
-            </ListGroup>
+            </ListGroups>
         </div>
     );
-}
+};
 
 ListGroup.defaultProps = {
     textPorperty :"name",
-    valueProperty :""
+    valueProperty :"id"
 }
 
 export default ListGroup;

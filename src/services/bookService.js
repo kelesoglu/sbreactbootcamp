@@ -1,29 +1,62 @@
-import http from "./httpService";
-import {apiUrl} from "../config.json"
+// import http from "./httpService";
+// //import { apiUrl} from "../config.json"
+// import * as apiUrl from '../config.json'
 
-const apiEndpoint = apiUrl +"/books";
-function bookUrl(id){
-    return `${apiEndpoint}/${id}`
+// const apiEndpoint = {apiUrl} +"/books";
+// //const apiEndpoint = apiUrl + "/books";
+// //const apiEndpoint = `${apiUrl}/books`;
+// function bookUrl(id){
+//     return `${apiEndpoint}/${id}`
+// }
+
+// export function getBooks(){
+//     return http.get(apiEndpoint);
+// }
+
+// export function getBook(bookId){
+//     return http.get(bookUrl(bookId));
+// }
+
+// export function saveBook(book){
+//     if(book.id){
+//         const body = {...book};
+//         delete body.id;
+
+//         return http.put(bookUrl(book.id),body);
+//     }
+
+//     return http.post(apiEndpoint, book);
+// }
+// export function deleteBook(bookId){
+//     return http.delete(bookUrl(bookId));
+// }
+
+import http from './httpService'
+
+const apiEndpoint = 'http://localhost:8088/api/books'
+
+function bookUrl(id) {
+  return `${apiEndpoint}/${id}`
 }
 
-export function getBooks(){
-    return http.get(apiEndpoint);
+export function getBooks() {
+  return http.get(apiEndpoint)
 }
 
-export function getBook(bookId){
-    return http.get(bookUrl(bookId));
+export function getBook(bookId) {
+  return http.get(bookUrl(bookId))
 }
 
-export function saveBook(book){
-    if(book.id){
-        const body = {...book};
-        delete body.id;
+export function saveBook(book) {
+  if (book.id) {
+    const body = { ...book }
+    delete body.id
+    return http.put(bookUrl(book.id), body)
+  }
 
-        return http.put(bookUrl(book.id),body);
-    }
-
-    return http.post(apiEndpoint, book);
+  return http.post(apiEndpoint, book)
 }
-export function deleteBook(bookId){
-    return http.delete(bookUrl(bookId));
+
+export function deleteBook(bookId) {
+  return http.delete(bookUrl(bookId))
 }

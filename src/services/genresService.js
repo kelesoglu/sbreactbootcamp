@@ -1,9 +1,18 @@
-import http from "./httpService";
-import {apiUrl} from "../config.json"
+import http from './httpService'
 
-export function getGenres(){
-    return http.get(apiUrl + "/genres");
+export function getGenres() {
+  return http.get('http://localhost:8088/api/genres')
 }
+
+
+// import http from "./httpService";
+// //import {apiUrl} from "../config.json"
+// import * as apiUrl from '../config.json'
+
+// export function getGenres(){
+//     //return http.get(apiUrl + "/genres");
+//     return http.get(`${apiUrl}/genres`) ;
+// }
 
 // export function getAuthor(authorId){
 //     return http.get(authorUrl(authorId));
