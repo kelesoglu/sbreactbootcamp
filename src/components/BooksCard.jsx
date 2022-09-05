@@ -30,9 +30,9 @@ function BooksCard(props) {
       setTypes(genres)
     }
   
-    // useEffect(() => {
-    //   getData()
-    // }, [])
+    useEffect(() => {
+      getData()
+    }, [])
   
     const handleGenreSelect = async (genre) => {
       setType(genre)

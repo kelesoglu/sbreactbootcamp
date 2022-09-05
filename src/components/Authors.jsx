@@ -22,15 +22,15 @@ export default class Authors extends Component {
         sortColumn : { path: "title", order: "asc" }
     };
 
-    // async componentDidMount(){
-    //     const { data } = await getGenres()
-    //                     .then((response) => response.data);
-    //     const genres = [{ id: "", name: "All Genres" }, ...data];
+    async componentDidMount(){
+        const { data } = await getGenres()
+                        .then((response) => response.data);
+        const genres = [{ id: "", name: "All Genres" }, ...data];
 
-    //     const { data: authors } = await getAuthors()
-    //                             .then((response) => response.data )
-    //     this.setState({ authors, genres })
-    // }
+        const { data: authors } = await getAuthors()
+                                .then((response) => response.data )
+        this.setState({ authors, genres })
+    }
 
     handleDelete = async author => {
         const originalAuthors = this.state.authors;
